@@ -1,0 +1,39 @@
+
+
+local accountTxt;
+local loginBtn;
+
+function awake()
+	print("lua awake...");
+
+	accountTxt = self.transform:Find("Account"):GetComponent("InputField");
+	loginBtn = self.transform:Find("Login");
+
+end
+
+function start()
+	print("lua start...");
+	--[[
+	local defaultAccount = PlayerPrefs.GetString("account");
+    if(defaultAccount == nil or defaultAccount == "")then
+        defaultAccount = "test1";
+    end
+	--]]
+	local defaultAccount = "test1";
+    accountTxt.text = defaultAccount;
+
+	EventTriggerListener.Get(loginBtn.gameObject).onClick = OnClickLogin;
+end
+
+function update()
+	
+end
+
+function ondestroy()
+    print("lua destroy")
+end
+
+function OnClickLogin(go)
+    UIManager.Instance.OpenUI("MainUI");
+end
+

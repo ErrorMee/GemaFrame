@@ -1,0 +1,14 @@
+ManifestFileVersion: 0
+CRC: 3503653788
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uisprite_.ab
+      Dependencies: {}
+    Info_1:
+      Name: config_.ab
+      Dependencies: {}
+    Info_2:
+      Name: prefabs/ui_.ab
+      Dependencies:
+        Dependency_0: uisprite_.ab

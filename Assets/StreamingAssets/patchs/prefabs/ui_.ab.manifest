@@ -1,0 +1,55 @@
+ManifestFileVersion: 0
+CRC: 3091321704
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3aa353aaa9991a99d34c83030dfece56
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0ba59efb4525aab8162dba7b20ac6e58
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fb0eb602715b87344a230f5769d7915b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5b0b72a35b829204491d477929506278, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1e31d3e4e0534314582f6b66d50d6daa, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 277bc2dbb6ed2ee44af69a64b4f2f3d5, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/BuildAssets/Prefabs/UI/FightUI.prefab
+- Assets/BuildAssets/Prefabs/UI/BagUI.prefab
+- Assets/BuildAssets/Prefabs/UI/LoginUI.prefab
+- Assets/BuildAssets/Prefabs/UI/MainUI.prefab
+Dependencies:
+- E:/GemaStudio/GemaFrame/Assets/StreamingAssets/patchs/uisprite_.ab
+- E:/GemaStudio/GemaFrame/Assets/StreamingAssets/patchs/lua/ui_.ab

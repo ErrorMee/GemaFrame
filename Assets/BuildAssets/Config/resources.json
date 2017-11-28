@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Login",
+            "ab": "lua/ui_",
+            "type": "Asset"
+        },
+        {
+            "id": 2,
+            "name": "BagUI",
+            "ab": "prefabs/ui_",
+            "type": "Asset"
+        },
+        {
+            "id": 3,
+            "name": "FightUI",
+            "ab": "prefabs/ui_",
+            "type": "Asset"
+        },
+        {
+            "id": 4,
+            "name": "LoginUI",
+            "ab": "prefabs/ui_",
+            "type": "Asset"
+        },
+        {
+            "id": 5,
+            "name": "MainUI",
+            "ab": "prefabs/ui_",
+            "type": "Asset"
+        },
+        {
+            "id": 6,
+            "name": "cell_01",
+            "ab": "uisprite_",
+            "type": "Texture"
+        },
+        {
+            "id": 7,
+            "name": "cell_02",
+            "ab": "uisprite_",
+            "type": "Texture"
+        },
+        {
+            "id": 8,
+            "name": "cell_03",
+            "ab": "uisprite_",
+            "type": "Texture"
+        },
+        {
+            "id": 9,
+            "name": "cell_04",
+            "ab": "uisprite_",
+            "type": "Texture"
+        },
+        {
+            "id": 10,
+            "name": "LOGO",
+            "ab": "uisprite_",
+            "type": "Texture"
+        }
+    ]
+}
