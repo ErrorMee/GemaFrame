@@ -26,9 +26,8 @@
 		
 	</assembly>
 
-	<assembly fullname="UnityEngine">
+	<assembly fullname="UnityEngine.CoreModule">
 	    <type fullname="UnityEngine.WaitForSeconds" preserve="all"/>
-		<type fullname="UnityEngine.WWW" preserve="all"/>
 		<type fullname="UnityEngine.Object" preserve="all"/>
 		<type fullname="UnityEngine.Vector2" preserve="all"/>
 		<type fullname="UnityEngine.Vector3" preserve="all"/>
@@ -47,18 +46,31 @@
 		<type fullname="UnityEngine.TextAsset" preserve="all"/>
 		<type fullname="UnityEngine.Keyframe" preserve="all"/>
 		<type fullname="UnityEngine.AnimationCurve" preserve="all"/>
-		<type fullname="UnityEngine.AnimationClip" preserve="all"/>
 		<type fullname="UnityEngine.MonoBehaviour" preserve="all"/>
-		<type fullname="UnityEngine.ParticleSystem" preserve="all"/>
 		<type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all"/>
 		<type fullname="UnityEngine.Renderer" preserve="all"/>
 		<type fullname="UnityEngine.Debug" preserve="all"/>
 		
 	</assembly>
 
+	<assembly fullname="UnityEngine.UnityWebRequestWWWModule">
+	    <type fullname="UnityEngine.WWW" preserve="all"/>
+		
+	</assembly>
+
 	<assembly fullname="mscorlib">
 	    <type fullname="System.Object" preserve="all"/>
 		<type fullname="System.Collections.Generic.List`1[System.Int32]" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.AnimationModule">
+	    <type fullname="UnityEngine.AnimationClip" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.ParticleSystemModule">
+	    <type fullname="UnityEngine.ParticleSystem" preserve="all"/>
 		
 	</assembly>
 
