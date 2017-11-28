@@ -168,7 +168,7 @@ namespace XLua.CSObjectWrap
                     byte[] postData = LuaAPI.lua_tobytes(L, 3);
                     string[] iHeaders = (string[])translator.GetObject(L, 4, typeof(string[]));
                     
-                    __cl_gen_to_be_invoked.InitWWW( url, postData, iHeaders );
+                    //__cl_gen_to_be_invoked.InitWWW( url, postData, iHeaders );
                     
                     
                     
