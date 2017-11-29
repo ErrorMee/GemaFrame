@@ -13,7 +13,7 @@ public class UIManager : SingletonBehaviour<UIManager>
 
     private void Awake()
     {
-        uiRootT = GameObject.Find("Canvas/UIRoot").transform;
+        uiRootT = Game.Instance.canvasTrans.Find("UIRoot").transform;
     }
 
     public void OpenUI(string name)

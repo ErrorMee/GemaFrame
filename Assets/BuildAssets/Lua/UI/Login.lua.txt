@@ -22,7 +22,7 @@ function start()
 	local defaultAccount = "test1";
     accountTxt.text = defaultAccount;
 
-	EventTriggerListener.Get(loginBtn.gameObject).onClick = OnClickLogin;
+	--EventTriggerListener.Get(loginBtn.gameObject).onClick = OnClickLogin;
 end
 
 function update()

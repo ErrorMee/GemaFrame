@@ -15,9 +15,7 @@ public class PathEdit
     [MenuItem(kOpenRemotePatchPath, false, 101)]
     static void OpenRemotePatchRootPath()
     {
-        string jsonContent = System.IO.File.ReadAllText(PathUtil.PatchConfigPath(), new System.Text.UTF8Encoding(false));
-        PatchConfigInfo patchConfigInfo = new PatchConfigInfo();
-        JsonUtility.FromJsonOverwrite(jsonContent, patchConfigInfo);
-        System.Diagnostics.Process.Start(patchConfigInfo.patchRootPath);
+        GameSetting gameSetting = Resources.Load<GameSetting>("GameSetting");
+        System.Diagnostics.Process.Start(gameSetting.GetPatchRootPath());
     }
 }

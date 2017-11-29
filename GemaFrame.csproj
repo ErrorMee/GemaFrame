@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0p2</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -478,7 +480,7 @@
     <Compile Include="Assets\Scripts\EventManager\EventTriggerListener.cs" />
     <Compile Include="Assets\Scripts\EventManager\GameEvent.cs" />
     <Compile Include="Assets\Scripts\EventManager\GameEventType.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\LuaManager\LuaManager.cs" />
     <Compile Include="Assets\Scripts\LuaManager\XLua\Examples\01_Helloworld\Helloworld.cs" />
     <Compile Include="Assets\Scripts\LuaManager\XLua\Examples\02_U3DScripting\LuaBehaviour.cs" />
@@ -579,7 +581,6 @@
     <Compile Include="Assets\Scripts\LuaManager\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
     <Compile Include="Assets\Scripts\LuaManager\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
     <Compile Include="Assets\Scripts\NetManger\NetManger.cs" />
-    <Compile Include="Assets\Scripts\PatchManager\PatchConfigInfo.cs" />
     <Compile Include="Assets\Scripts\PatchManager\PatchFileInfo.cs" />
     <Compile Include="Assets\Scripts\PatchManager\PatchFiles.cs" />
     <Compile Include="Assets\Scripts\PatchManager\PatchManager.cs" />
@@ -595,6 +596,7 @@
     <Compile Include="Assets\Scripts\UIManager\UIs\LoginUI.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIs\MainUI.cs" />
     <Compile Include="Assets\Scripts\Util\ColorUtil.cs" />
+    <Compile Include="Assets\Scripts\Util\GameSetting.cs" />
     <Compile Include="Assets\Scripts\Util\GLog.cs" />
     <Compile Include="Assets\Scripts\Util\MD5Util.cs" />
     <Compile Include="Assets\Scripts\Util\MyExtensions.cs" />

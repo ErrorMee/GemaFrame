@@ -53,18 +53,11 @@ public class AssetManager : SingletonBehaviour<AssetManager>
         get
         {
 #if UNITY_EDITOR
-            return EditorPrefs.GetBool("BundleLoadMode", false);
+            return Game.Instance.gameSetting.loadModeIsBundle;
 #else
             return true;
 #endif
         }
-        set
-        {
-#if UNITY_EDITOR
-            EditorPrefs.SetBool("BundleLoadMode", value);
-#endif
-        }
-
     }
 
     /// <summary>

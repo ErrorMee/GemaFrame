@@ -7,8 +7,6 @@ using System.IO;
 
 public class PatchManager : SingletonBehaviour<PatchManager>
 {
-    public PatchConfigInfo patchConfigInfo;
-
     private PatchFiles localPatchFiles;
     private PatchFiles remotePatchFiles;
     private Queue<PatchFileInfo> needLoadPatchFiles;
@@ -22,27 +20,12 @@ public class PatchManager : SingletonBehaviour<PatchManager>
 
     void Awake()
     {
-        startUpText = GameManager.Instance.canvasTrans.Find("StartUp/Text").GetComponent<Text>();
+        startUpText = Game.Instance.canvasTrans.Find("StartUp/Text").GetComponent<Text>();
     }
 
     public void OnStart()
     {
-        InitPatchConfigInfo();
-    }
-
-    private void InitPatchConfigInfo()
-    {
-        string p = PathUtil.PatchPath;
-
-        GameEvent.SendEvent(GameEventType.GameFlow, GameFlow.PatchConfigLoad);
-
-        patchConfigInfo = new PatchConfigInfo();
-
-        string configText = FileHelper.GetText(PathUtil.PatchConfigPath());
-
-        JsonUtility.FromJsonOverwrite(configText, patchConfigInfo);
-        
-        if (patchConfigInfo.openPatch)
+        if (Game.Instance.gameSetting.patchOpen)
         {
             LoadLocalPatchFiles();
             LoadRemotePatchFiles();
@@ -184,7 +167,7 @@ public class PatchManager : SingletonBehaviour<PatchManager>
 
     IEnumerator DownloadUWR(PatchFileInfo patchFileInfo)
     {
-        string fileUrl = patchConfigInfo.patchRootPath + patchFileInfo.ResPath.Trim();
+        string fileUrl = Game.Instance.gameSetting.GetPatchRootPath() + patchFileInfo.ResPath.Trim();
         string localFilePath = PathUtil.PatchPath + patchFileInfo.ResPath.Trim();
         string localFileDirectory = Path.GetDirectoryName(localFilePath);
 

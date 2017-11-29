@@ -51,14 +51,9 @@ public class PathUtil
         }
     }
 
-    public static string PatchConfigPath()
-    {
-        return StreamingassetsPath + "/patchConfig.json";
-    }
-
     public static string RemotePatchFilesPath()
     {
-        return PatchManager.Instance.patchConfigInfo.patchRootPath + "patchfiles.txt";
+        return Game.Instance.gameSetting.GetPatchRootPath() + "patchfiles.txt";
     }
 
     /// <summary>

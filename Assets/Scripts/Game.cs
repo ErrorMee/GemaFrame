@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : SingletonBehaviour<GameManager>
+public class Game : SingletonBehaviour<Game>
 {
     public Transform canvasTrans;
 
+    public GameSetting gameSetting;
+
     void Awake()
     {
+        if (gameSetting == null)
+        {
+            gameSetting = Resources.Load<GameSetting>("GameSetting");
+        }
+
         gameObject.AddComponent<PatchManager>();
     }
 
@@ -19,11 +26,11 @@ public class GameManager : SingletonBehaviour<GameManager>
         GameEvent.RegisterEvent(GameEventType.LuaManagerReady, OnLuaManagerReady);
         PatchManager.Instance.OnStart();
     }
-    
+
     void OnGameFlowEvent(object[] param)
     {
         GameFlow gf = (GameFlow)(param[0]);
-        GLog.Log("GameFlow:" + (int)gf + " _ " + gf.ToString(),Color.yellow);
+        GLog.Log("GameFlow:" + (int)gf + " _ " + gf.ToString(), Color.yellow);
     }
 
     void OnPatchComplete(object[] param)

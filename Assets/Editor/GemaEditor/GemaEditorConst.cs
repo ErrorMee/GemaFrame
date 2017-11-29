@@ -12,4 +12,6 @@ public class GemaEditorConst
     public const string Path = Root + "/Path";
 
     public const string LUA = Root + "/Lua/";
+
+    public const string Setting = Root + "/CreateSetting";
 }
