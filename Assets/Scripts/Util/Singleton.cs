@@ -30,7 +30,7 @@ public class Singleton<T> where T : new()
     }
 }
 
-public class SingletonBehaviour<T> : UnityEngine.MonoBehaviour where T : UnityEngine.MonoBehaviour
+public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
     static T instance;
 
