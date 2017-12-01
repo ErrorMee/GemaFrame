@@ -14,23 +14,17 @@ public class Game : SingletonBehaviour<Game>
         {
             gameSetting = Resources.Load<GameSetting>("GameSetting");
         }
-
+        gameObject.AddComponent<HttpManager>();
         gameObject.AddComponent<PatchManager>();
+
+        GameEvent.RegisterEvent(GameEventType.PatchComplete, OnPatchComplete);
+        GameEvent.RegisterEvent(GameEventType.AssetManagerReady, OnAssetManagerReady);
+        GameEvent.RegisterEvent(GameEventType.LuaManagerReady, OnLuaManagerReady);
     }
 
     void Start()
     {
-        GameEvent.RegisterEvent(GameEventType.GameFlow, OnGameFlowEvent);
-        GameEvent.RegisterEvent(GameEventType.PatchComplete, OnPatchComplete);
-        GameEvent.RegisterEvent(GameEventType.AssetManagerReady, OnAssetManagerReady);
-        GameEvent.RegisterEvent(GameEventType.LuaManagerReady, OnLuaManagerReady);
         PatchManager.Instance.OnStart();
-    }
-
-    void OnGameFlowEvent(object[] param)
-    {
-        GameFlow gf = (GameFlow)(param[0]);
-        GLog.Log("GameFlow:" + (int)gf + " _ " + gf.ToString(), Color.yellow);
     }
 
     void OnPatchComplete(object[] param)

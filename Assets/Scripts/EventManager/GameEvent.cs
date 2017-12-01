@@ -31,6 +31,12 @@ public class GameEvent
 
     public static void SendEvent(string eventName, params object[] param)
     {
+        if (eventName == GameEventType.GameFlow)
+        {
+            GameFlow gf = (GameFlow)(param[0]);
+            GLog.Log("GameFlow:" + (int)gf + " : " + gf.ToString(), Color.yellow);
+        }
+
         List<System.Action<object[]>> evtList;
         if (eventDic.TryGetValue(eventName, out evtList))
         {

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0p2</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -578,12 +580,12 @@
     <Compile Include="Assets\Scripts\LuaManager\XLua\Tutorial\LoadLuaScript\ByString\ByString.cs" />
     <Compile Include="Assets\Scripts\LuaManager\XLua\Tutorial\LoadLuaScript\Loader\CustomLoader.cs" />
     <Compile Include="Assets\Scripts\LuaManager\XLua\Tutorial\LuaCallCSharp\LuaCallCs.cs" />
+    <Compile Include="Assets\Scripts\NetManger\Http\HttpManager.cs" />
     <Compile Include="Assets\Scripts\PatchManager\PatchFileInfo.cs" />
     <Compile Include="Assets\Scripts\PatchManager\PatchFiles.cs" />
     <Compile Include="Assets\Scripts\PatchManager\PatchManager.cs" />
     <Compile Include="Assets\Scripts\ResourceManager\AssetBundleInfo.cs" />
     <Compile Include="Assets\Scripts\ResourceManager\AssetManager.cs" />
-    <Compile Include="Assets\Scripts\ResourceManager\FileHelper.cs" />
     <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\UIManager\LuaUIBase.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIBase.cs" />

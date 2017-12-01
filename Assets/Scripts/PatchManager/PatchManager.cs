@@ -27,10 +27,7 @@ public class PatchManager : SingletonBehaviour<PatchManager>
     {
         if (Game.Instance.gameSetting.patchOpen)
         {
-            LoadLocalPatchFiles();
-            LoadRemotePatchFiles();
-
-            CompareLocalAndRemotePatchFiles();
+            HandlePatch();
         }
         else
         {
@@ -45,7 +42,7 @@ public class PatchManager : SingletonBehaviour<PatchManager>
         GameEvent.SendEvent(GameEventType.PatchComplete);
     }
 
-    private void LoadLocalPatchFiles()
+    private void HandlePatch()
     {
         GameEvent.SendEvent(GameEventType.GameFlow, GameFlow.PatchFileLocalLoad);
 
@@ -53,26 +50,26 @@ public class PatchManager : SingletonBehaviour<PatchManager>
         string localPatchFilesPath = PathUtil.LocalPatchFilesPath();
         if (File.Exists(localPatchFilesPath))
         {
-            string filesText = FileHelper.GetText(localPatchFilesPath);
-            localPatchFiles.Load(filesText);
             GLog.Log("localPatchFilesPath " + localPatchFilesPath);
+            HttpManager.Instance.LoadText(localPatchFilesPath, (res) =>
+            {
+                localPatchFiles.Load(res);
+                LoadRemotePatchFiles();
+            });
         }
         else
         {
             string streamingPatchFilesPath = PathUtil.StreamingPatchFilesPath();
-            GLog.Log("localPatchFilesPath " + streamingPatchFilesPath);
+            
             if (File.Exists(streamingPatchFilesPath))
             {
-                string filesText = FileHelper.GetText(streamingPatchFilesPath);
-                if (filesText != null)
+                GLog.Log("localPatchFilesPath " + streamingPatchFilesPath);
+                HttpManager.Instance.LoadText(streamingPatchFilesPath, (res) =>
                 {
-                    File.WriteAllText(localPatchFilesPath, filesText);
-                    localPatchFiles.Load(filesText);
-                }
-                else
-                {
-                    GLog.Error(string.Format("{0} is null", streamingPatchFilesPath), true);
-                }
+                    File.WriteAllText(localPatchFilesPath, res);
+                    localPatchFiles.Load(res);
+                    LoadRemotePatchFiles();
+                });
             }
             else
             {
@@ -89,8 +86,11 @@ public class PatchManager : SingletonBehaviour<PatchManager>
         GLog.Log("remotePatchFilesPath " + remotePatchFilesPath);
         if (File.Exists(remotePatchFilesPath))
         {
-            string filesText = FileHelper.GetText(remotePatchFilesPath);
-            remotePatchFiles.Load(filesText);
+            HttpManager.Instance.LoadText(remotePatchFilesPath, (res) =>
+            {
+                remotePatchFiles.Load(res);
+                CompareLocalAndRemotePatchFiles();
+            });
         }
         else
         {
@@ -142,13 +142,62 @@ public class PatchManager : SingletonBehaviour<PatchManager>
             }
 
             StartCoroutine(PatchAsset());
+            //HttpPatch();
         }
         else
         {
             PatchComplete();
         }
     }
-    
+
+
+    FileStream outStream;
+    private void HttpPatch()
+    {
+        if (needLoadPatchFiles.Count > 0)
+        {
+            PatchFileInfo patchFileInfo = needLoadPatchFiles.Peek();
+            string fileUrl = Game.Instance.gameSetting.GetPatchRootPath() + patchFileInfo.ResPath.Trim();
+            string localFilePath = PathUtil.PatchPath + patchFileInfo.ResPath.Trim();
+            string localFileDirectory = Path.GetDirectoryName(localFilePath);
+
+            if (!Directory.Exists(localFileDirectory))
+            {
+                Directory.CreateDirectory(localFileDirectory);
+            }
+
+            outStream = new FileStream(localFilePath, FileMode.OpenOrCreate);
+
+            HttpManager.Instance.LoadFile(fileUrl, HttpDownloadProgress);
+        }
+        else
+        {
+            PatchComplete();
+        }
+    }
+
+    private void HttpDownloadProgress(int loadedLength, int fullLength, byte[] deltaBuffer, bool isComplete)
+    {
+        if (isComplete)
+        {
+            outStream.Close();
+            PatchFileInfo patchFile = needLoadPatchFiles.Dequeue();
+            refreshPatchFiles.FileAppend(PathUtil.LocalPatchFilesPath(), patchFile.ToString());
+            HttpPatch();
+        }
+        else
+        {
+            if (deltaBuffer == null || deltaBuffer.Length < 1)
+            {
+
+            }
+            else
+            {
+                outStream.Read(deltaBuffer, 0, deltaBuffer.Length);
+            }
+        }
+    }
+
     /// <summary>
     /// 热更资源
     /// </summary>
@@ -156,7 +205,8 @@ public class PatchManager : SingletonBehaviour<PatchManager>
     {
         if (needLoadPatchFiles.Count > 0)
         {
-            StartCoroutine(DownloadUWR(needLoadPatchFiles.Peek()));
+            PatchFileInfo patchFileInfo = needLoadPatchFiles.Peek();
+            StartCoroutine(DownloadUWR(patchFileInfo));
         }
         else
         {
@@ -184,8 +234,6 @@ public class PatchManager : SingletonBehaviour<PatchManager>
         uwr.downloadHandler = new PatchDownloadHandler(patchFileInfo, outStream, OnFinishDownloadOneFile);
 
         yield return uwr.Send();
-
-        yield break;
     }
 
     private void OnFinishDownloadOneFile(bool finish)
