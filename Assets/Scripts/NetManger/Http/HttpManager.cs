@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public delegate void DownloadProgress(int loadedLength, int fullLength, byte[] deltaBuffer, bool isComplete);
+public delegate void DownloadProgress(int dataLength, byte[] deltaBuffer, bool isComplete);
 
 public class HttpManager : SingletonBehaviour<HttpManager>
 {
@@ -37,19 +37,24 @@ public class HttpManager : SingletonBehaviour<HttpManager>
     }
 
     /// <summary>
+    /// 预分配内存
+    /// </summary>
+    private byte[] preAllocatedBuffer = new byte[1024 * 64];
+
+    /// <summary>
     /// 较大文件下载
     /// </summary>
     /// <param name="url">下载地址</param>
     /// <param name="finishLoad">回调方法</param>
     public void LoadFile(string url, DownloadProgress downloadProgress)
     {
+        GLog.Log("LoadFile:" + url, Color.red);
         StartCoroutine(OnLoadFile(url, downloadProgress));
     }
     IEnumerator OnLoadFile(string url, DownloadProgress downloadProgress)
     {
         UnityWebRequest uwr = new UnityWebRequest(url,UnityWebRequest.kHttpVerbGET);
-
-        byte[] preAllocatedBuffer = new byte[8];
+        
         MyDownloadHandler myDownloadHandler = new MyDownloadHandler(preAllocatedBuffer, downloadProgress);
 
         uwr.downloadHandler = myDownloadHandler;
@@ -60,7 +65,7 @@ public class HttpManager : SingletonBehaviour<HttpManager>
             GLog.Error(uwr.error);
             if (downloadProgress != null)
             {
-                downloadProgress(0, 0, null, false);
+                downloadProgress(0, null, false);
             }
         }
     }
@@ -104,7 +109,7 @@ class MyDownloadHandler : DownloadHandlerScript
     /// <param name="contentLength"></param>
     protected override void ReceiveContentLength(int contentLength)
     {
-        base.ReceiveContentLength(contentLength);
+        //base.ReceiveContentLength(contentLength);
         fullLength = contentLength;
     }
 
@@ -116,39 +121,29 @@ class MyDownloadHandler : DownloadHandlerScript
     /// <returns>ture 继续 false 终止</returns>
     protected override bool ReceiveData(byte[] data, int dataLength)
     {
-        base.ReceiveData(data, dataLength);
+        //base.ReceiveData(data, dataLength);
         if (data == null || data.Length < 1)
         {
             GLog.Error("MyDownloadHandler :: ReceiveData - received a null/empty buffer");
             if (downloadProgress != null)
             {
-                downloadProgress(loadedLength, fullLength, data, loadedLength < fullLength);
+                downloadProgress(dataLength, data, false);
             }
             return false;
         }
         loadedLength += dataLength;
         if (downloadProgress != null)
         {
-            downloadProgress(loadedLength, fullLength, data, loadedLength < fullLength);
+            downloadProgress(dataLength, data, false);
         }
         return true;
     }
 
-    /// <summary>
-    /// 所有数据接收完毕 ReceiveData调用
-    /// </summary>
     protected override void CompleteContent()
     {
-        base.CompleteContent();
-        //downloadProgress(loadedLength, fullLength, null, loadedLength < fullLength);
-    }
-    
-    /// <summary>
-    /// 当访问data属性时调用
-    /// </summary>
-    /// <returns></returns>
-    protected override byte[] GetData()
-    {
-        return base.GetData();
+        if (downloadProgress != null)
+        {
+            downloadProgress(0, null, true);
+        }
     }
 }

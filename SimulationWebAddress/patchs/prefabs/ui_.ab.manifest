@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1486201298
+CRC: 4001814143
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5667f4ef794002e4c75df789415688a1
+    Hash: 952321af253e3c1956af54d58dc976a1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 24f1d395541508fe49a1b6e1bc38a007
+    Hash: 9720ff7768496f07f94dca4d8eedaabf
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,16 +17,14 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
-- Class: 114
-  Script: {fileID: 11500000, guid: 10e7dbe0d6fcdd34eac4cc31c0fa2e04, type: 3}
+- Class: 49
+  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-- Class: 114
-  Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
@@ -35,6 +33,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 5b0b72a35b829204491d477929506278, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1e31d3e4e0534314582f6b66d50d6daa, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 277bc2dbb6ed2ee44af69a64b4f2f3d5, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -51,4 +51,5 @@ Assets:
 - Assets/BuildAssets/Prefabs/UI/LoginUI.prefab
 - Assets/BuildAssets/Prefabs/UI/MainUI.prefab
 Dependencies:
-- E:/GemaStudio/GemaFrame/Assets/StreamingAssets/patchs/uisprite_.ab
+- E:/StudySpace/GitSpace/GemaFrame/Assets/StreamingAssets/patchs/uisprite_.ab
+- E:/StudySpace/GitSpace/GemaFrame/Assets/StreamingAssets/patchs/lua/ui_.ab

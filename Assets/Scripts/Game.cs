@@ -14,6 +14,9 @@ public class Game : SingletonBehaviour<Game>
         {
             gameSetting = Resources.Load<GameSetting>("GameSetting");
         }
+
+        Application.targetFrameRate = 30;
+
         gameObject.AddComponent<HttpManager>();
         gameObject.AddComponent<PatchManager>();
 

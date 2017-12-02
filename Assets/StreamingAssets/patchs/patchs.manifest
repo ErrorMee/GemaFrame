@@ -1,18 +1,18 @@
 ManifestFileVersion: 0
-CRC: 101647708
+CRC: 4270807238
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: uisprite_.ab
       Dependencies: {}
     Info_1:
-      Name: config_.ab
-      Dependencies: {}
-    Info_2:
       Name: prefabs/ui_.ab
       Dependencies:
         Dependency_0: uisprite_.ab
         Dependency_1: lua/ui_.ab
+    Info_2:
+      Name: config_.ab
+      Dependencies: {}
     Info_3:
       Name: lua/ui_.ab
       Dependencies: {}

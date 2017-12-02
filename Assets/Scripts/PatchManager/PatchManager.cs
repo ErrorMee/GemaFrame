@@ -125,24 +125,25 @@ public class PatchManager : SingletonBehaviour<PatchManager>
         }
 
         refreshPatchFiles.FileReplace(PathUtil.LocalPatchFilesPath());
-        GLog.Log("needLoadSize " + needLoadSize + " Count " + needLoadPatchFiles.Count, Color.red);
+
+        float needLoadSizeM = needLoadSize / (1024 * 1024);
+
+        GLog.Log("needLoadSizeM " + needLoadSizeM + " Count " + needLoadPatchFiles.Count, Color.red);
         if (needLoadPatchFiles.Count > 0)
         {//如果下载列表不为空
-            needLoadSize = needLoadSize / (float)(1024 * 1024);
             if (NetworkUtil.GetNetworkType() == NetworkType.Wifi)
             {
                 
             }
             else
             {
-                if (needLoadSize > 5f)
+                if (needLoadSizeM > 5f)
                 {
                     //大于5m用户提醒
                 }
             }
-
-            StartCoroutine(PatchAsset());
-            //HttpPatch();
+            
+            HttpPatch();
         }
         else
         {
@@ -176,8 +177,13 @@ public class PatchManager : SingletonBehaviour<PatchManager>
         }
     }
 
-    private void HttpDownloadProgress(int loadedLength, int fullLength, byte[] deltaBuffer, bool isComplete)
+    private void HttpDownloadProgress(int deltaBufferLength, byte[] deltaBuffer, bool isComplete)
     {
+        if (deltaBufferLength > 0)
+        {
+            outStream.Write(deltaBuffer, 0, deltaBufferLength);
+        }
+        
         if (isComplete)
         {
             outStream.Close();
@@ -187,122 +193,13 @@ public class PatchManager : SingletonBehaviour<PatchManager>
         }
         else
         {
+            //GLog.Log("deltaBufferLength:" + deltaBufferLength + " time " + Time.time);
             if (deltaBuffer == null || deltaBuffer.Length < 1)
             {
-
             }
             else
             {
-                outStream.Read(deltaBuffer, 0, deltaBuffer.Length);
             }
         }
     }
-
-    /// <summary>
-    /// 热更资源
-    /// </summary>
-    IEnumerator PatchAsset()
-    {
-        if (needLoadPatchFiles.Count > 0)
-        {
-            PatchFileInfo patchFileInfo = needLoadPatchFiles.Peek();
-            StartCoroutine(DownloadUWR(patchFileInfo));
-        }
-        else
-        {
-            PatchComplete();
-        }
-        yield break;
-    }
-
-    IEnumerator DownloadUWR(PatchFileInfo patchFileInfo)
-    {
-        string fileUrl = Game.Instance.gameSetting.GetPatchRootPath() + patchFileInfo.ResPath.Trim();
-        string localFilePath = PathUtil.PatchPath + patchFileInfo.ResPath.Trim();
-        string localFileDirectory = Path.GetDirectoryName(localFilePath);
-
-        if (!Directory.Exists(localFileDirectory))
-        {
-            Directory.CreateDirectory(localFileDirectory);
-            yield return null;//创建目录暂停一帧
-        }
-        
-        GLog.Log("patch <= " + localFilePath, Color.green, true);
-
-        FileStream outStream = new FileStream(localFilePath, FileMode.OpenOrCreate);
-        UnityWebRequest uwr = new UnityWebRequest(fileUrl);
-        uwr.downloadHandler = new PatchDownloadHandler(patchFileInfo, outStream, OnFinishDownloadOneFile);
-
-        yield return uwr.Send();
-    }
-
-    private void OnFinishDownloadOneFile(bool finish)
-    {
-        if (finish)
-        {
-            if (needLoadPatchFiles.Count > 0)
-            {
-                PatchFileInfo patchFile = needLoadPatchFiles.Dequeue();
-                refreshPatchFiles.FileAppend(PathUtil.LocalPatchFilesPath(), patchFile.ToString());
-                if (needLoadPatchFiles.Count > 0)
-                {
-                    StartCoroutine(DownloadUWR(needLoadPatchFiles.Peek()));
-                }
-                else
-                {
-                    StartCoroutine(PatchAsset());
-                }
-            }
-            else
-            {
-                StartCoroutine(PatchAsset());
-            }
-        }
-    }
-}
-
-
-public class PatchDownloadHandler : DownloadHandlerScript
-{
-    PatchFileInfo patchFileInfo;
-    private Stream outStream;
-    PatchManager.FinishDownloadOneFile finishOneCallBack;
-
-    public PatchDownloadHandler(PatchFileInfo _patchFileInfo, Stream _outStream, PatchManager.FinishDownloadOneFile _finishOneCallBack) : base()
-    {
-        patchFileInfo = _patchFileInfo;
-        outStream = _outStream;
-        finishOneCallBack = _finishOneCallBack;
-    }
-
-    protected override void CompleteContent()
-    {
-        GLog.Log("CompleteContent:" + patchFileInfo.ResPath);
-        if (outStream != null)
-        {
-            outStream.Close();
-            if (finishOneCallBack != null)
-            {
-                finishOneCallBack(true);
-            }
-        }
-    }
-    
-    protected override void ReceiveContentLength(int contentLength)
-    {
-        GLog.Log(patchFileInfo.ResPath + " ContentLength " + contentLength);
-    }
-
-    protected override bool ReceiveData(byte[] data, int dataLength)
-    {
-        //GLog.Log("data " + data.Length + " dataLength " + dataLength);
-
-        if (outStream != null)
-        {
-            outStream.Write(data, 0, dataLength);
-        }
-
-        return true;
-    }
-    
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3091321704
+CRC: 4001814143
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3aa353aaa9991a99d34c83030dfece56
+    Hash: 952321af253e3c1956af54d58dc976a1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0ba59efb4525aab8162dba7b20ac6e58
+    Hash: 9720ff7768496f07f94dca4d8eedaabf
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -51,5 +51,5 @@ Assets:
 - Assets/BuildAssets/Prefabs/UI/LoginUI.prefab
 - Assets/BuildAssets/Prefabs/UI/MainUI.prefab
 Dependencies:
-- E:/GemaStudio/GemaFrame/Assets/StreamingAssets/patchs/uisprite_.ab
-- E:/GemaStudio/GemaFrame/Assets/StreamingAssets/patchs/lua/ui_.ab
+- E:/StudySpace/GitSpace/GemaFrame/Assets/StreamingAssets/patchs/uisprite_.ab
+- E:/StudySpace/GitSpace/GemaFrame/Assets/StreamingAssets/patchs/lua/ui_.ab
