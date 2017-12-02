@@ -23,7 +23,7 @@ public class PatchManager : SingletonBehaviour<PatchManager>
         startUpText = Game.Instance.canvasTrans.Find("StartUp/Text").GetComponent<Text>();
     }
 
-    public void OnStart()
+    public void Init()
     {
         if (Game.Instance.gameSetting.patchOpen)
         {

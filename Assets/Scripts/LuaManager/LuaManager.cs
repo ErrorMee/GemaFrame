@@ -15,7 +15,7 @@ public class LuaManager : SingletonBehaviour<LuaManager>
         luaEnv = new LuaEnv();
     }
 
-    private void Start()
+    public void Init()
     {
         GameEvent.SendEvent(GameEventType.LuaManagerReady);
     }

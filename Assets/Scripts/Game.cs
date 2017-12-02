@@ -19,6 +19,9 @@ public class Game : SingletonBehaviour<Game>
 
         gameObject.AddComponent<HttpManager>();
         gameObject.AddComponent<PatchManager>();
+        gameObject.AddComponent<AssetManager>();
+        gameObject.AddComponent<UIManager>();
+        gameObject.AddComponent<LuaManager>();
 
         GameEvent.RegisterEvent(GameEventType.PatchComplete, OnPatchComplete);
         GameEvent.RegisterEvent(GameEventType.AssetManagerReady, OnAssetManagerReady);
@@ -27,27 +30,24 @@ public class Game : SingletonBehaviour<Game>
 
     void Start()
     {
-        PatchManager.Instance.OnStart();
+        PatchManager.Instance.Init();
     }
 
     void OnPatchComplete(object[] param)
     {
-        GLog.Log("OnPatchComplete", Color.green);
         GameEvent.UnregisterEvent(GameEventType.PatchComplete, OnPatchComplete);
-        gameObject.AddComponent<AssetManager>();
-        gameObject.AddComponent<UIManager>();
+
+        AssetManager.Instance.Init();
     }
 
     void OnAssetManagerReady(object[] param)
     {
-        GLog.Log("OnAssetManagerReady", Color.green);
         GameEvent.UnregisterEvent(GameEventType.AssetManagerReady, OnAssetManagerReady);
-        gameObject.AddComponent<LuaManager>();
+        LuaManager.Instance.Init();
     }
 
     void OnLuaManagerReady(object[] param)
     {
-        GLog.Log("OnLuaManagerReady", Color.green);
         GameEvent.UnregisterEvent(GameEventType.LuaManagerReady, OnLuaManagerReady);
         UIManager.Instance.OpenUI("LoginUI");
     }

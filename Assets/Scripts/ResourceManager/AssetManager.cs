@@ -18,7 +18,7 @@ public class AssetManager : SingletonBehaviour<AssetManager>
 
     private ResourcesConfig resourceConfig = new ResourcesConfig();
 
-    private void Start()
+    public void Init()
     {
 #if UNITY_EDITOR
         if (AssetManager.bundleLoadMode)//编辑器下的Bundle加载模式
