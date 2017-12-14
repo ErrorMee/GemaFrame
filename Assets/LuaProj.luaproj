@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>E439935D-B2A2-46AE-856D-2AA408428F33</ProjectGuid>
+    <!--$guid1$-->
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="BuildAssets\" />
+    <Folder Include="BuildAssets\Config\" />
+    <Folder Include="BuildAssets\Lua\" />
+    <Folder Include="BuildAssets\Lua\UI\" />
+    <Folder Include="BuildAssets\obj\" />
+    <Folder Include="BuildAssets\obj\Debug\" />
+    <Folder Include="BuildAssets\Prefabs\" />
+    <Folder Include="BuildAssets\Prefabs\UI\" />
+    <Folder Include="BuildAssets\UISprite\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BuildAssets\Config.meta" />
+    <Content Include="BuildAssets\Config\resources.json" />
+    <Content Include="BuildAssets\Config\resources.json.meta" />
+    <Content Include="BuildAssets\Lua.meta" />
+    <Content Include="BuildAssets\Lua\UI.meta" />
+    <Content Include="BuildAssets\Lua\UI\Login.lua.txt" />
+    <Content Include="BuildAssets\Lua\UI\Login.lua.txt.meta" />
+    <Content Include="BuildAssets\obj.meta" />
+    <Content Include="BuildAssets\obj\Debug.meta" />
+    <Content Include="BuildAssets\Prefabs.meta" />
+    <Content Include="BuildAssets\Prefabs\UI.meta" />
+    <Content Include="BuildAssets\Prefabs\UI\BagUI.prefab" />
+    <Content Include="BuildAssets\Prefabs\UI\BagUI.prefab.meta" />
+    <Content Include="BuildAssets\Prefabs\UI\FightUI.prefab" />
+    <Content Include="BuildAssets\Prefabs\UI\FightUI.prefab.meta" />
+    <Content Include="BuildAssets\Prefabs\UI\LoginUI.prefab" />
+    <Content Include="BuildAssets\Prefabs\UI\LoginUI.prefab.meta" />
+    <Content Include="BuildAssets\Prefabs\UI\MainUI.prefab" />
+    <Content Include="BuildAssets\Prefabs\UI\MainUI.prefab.meta" />
+    <Content Include="BuildAssets\UISprite.meta" />
+    <Content Include="BuildAssets\UISprite\cell_01.png" />
+    <Content Include="BuildAssets\UISprite\cell_01.png.meta" />
+    <Content Include="BuildAssets\UISprite\cell_02.png" />
+    <Content Include="BuildAssets\UISprite\cell_02.png.meta" />
+    <Content Include="BuildAssets\UISprite\cell_03.png" />
+    <Content Include="BuildAssets\UISprite\cell_03.png.meta" />
+    <Content Include="BuildAssets\UISprite\cell_04.png" />
+    <Content Include="BuildAssets\UISprite\cell_04.png.meta" />
+    <Content Include="BuildAssets\UISprite\LOGO.png" />
+    <Content Include="BuildAssets\UISprite\LOGO.png.meta" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
