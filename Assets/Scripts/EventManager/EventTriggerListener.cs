@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using XLua;
 
-[LuaCallCSharp]
 public class EventTriggerListener : MonoBehaviour, IEventSystemHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IUpdateSelectedHandler, ISelectHandler
 {
+    [CSharpCallLua]
     public delegate void VoidDelegate(GameObject go);
-
+    
     private VoidDelegate m_onClick;
     public VoidDelegate onClick
     {
@@ -202,11 +202,8 @@ public class EventTriggerListener : MonoBehaviour, IEventSystemHandler, IPointer
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        //UIManagerEx.GetInstance().Click(gameObject);
         if (onClick != null && !longPressTriggerd) onClick(gameObject);
         if (onClickDetail != null && !longPressTriggerd) onClickDetail(gameObject, eventData);
-        //         if(gameObject.GetComponent<UnityEngine.UI.Button>()!=null)
-        //             SoundManager.Instance.PlayUISound(4001, gameObject);
     }
     public void OnPointerDown(PointerEventData eventData)
     {

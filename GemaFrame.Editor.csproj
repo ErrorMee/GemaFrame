@@ -283,6 +283,7 @@
     <Compile Include="Assets\Editor\GemaEditor\FindAllFiles.cs" />
     <Compile Include="Assets\Editor\GemaEditor\GemaEditor.cs" />
     <Compile Include="Assets\Editor\GemaEditor\GemaEditorConst.cs" />
+    <Compile Include="Assets\Editor\GemaEditor\InspectorEdit\LuaComponentEditor.cs" />
     <Compile Include="Assets\Editor\GemaEditor\Resource\BuildResources.cs" />
     <Compile Include="Assets\Editor\GemaEditor\Resource\CollectDependencies.cs" />
     <Compile Include="Assets\Editor\GemaEditor\Resource\GenerateAssetBundleFiles.cs" />
@@ -296,7 +297,9 @@
     <Compile Include="Assets\Scripts\LuaManager\XLua\Src\Editor\TemplateRef.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\BuildAssets\Lua\UI\Login.lua.txt" />
+    <None Include="Assets\BuildAssets\Lua\LuaShell.lua.txt" />
+    <None Include="Assets\BuildAssets\Lua\UI\LoginTxt.lua.txt" />
+    <None Include="Assets\Resources\LuaSetting.lua.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\CHANGELOG.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\Examples\03_UIEvent\ButtonInteraction.lua.txt" />
@@ -304,7 +307,6 @@
     <None Include="Assets\Scripts\LuaManager\XLua\Examples\06_Coroutine\Resources\cs_coroutine.lua.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\Examples\07_AsyncTest\Resources\async_test.lua.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\Examples\07_AsyncTest\Resources\message_box.lua.txt" />
-    <None Include="Assets\Scripts\LuaManager\XLua\Gen\link.xml" />
     <None Include="Assets\Scripts\LuaManager\XLua\Resources\perf\memory.lua.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\Resources\perf\profiler.lua.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\Resources\tdr\tdr.lua.txt" />

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum UIType
 {
-    FULL,   //全屏幕
+    FULL,   //全屏
     WINDOW, //窗口
     PENDANT //挂件
 }

@@ -64,5 +64,8 @@
     <Content Include="BuildAssets\UISprite\LOGO.png" />
     <Content Include="BuildAssets\UISprite\LOGO.png.meta" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuildAssets\Lua\UI\Login.lua" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>

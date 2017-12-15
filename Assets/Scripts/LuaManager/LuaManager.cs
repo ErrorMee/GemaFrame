@@ -13,10 +13,16 @@ public class LuaManager : SingletonBehaviour<LuaManager>
     private void Awake()
     {
         luaEnv = new LuaEnv();
+
+        luaEnv.AddLoader((ref string filename) => {
+            GLog.Log("require > " + filename);
+            return null;
+        });
     }
 
     public void Init()
     {
+        luaEnv.DoString("require 'LuaSetting'");
         GameEvent.SendEvent(GameEventType.LuaManagerReady);
     }
 
@@ -27,5 +33,22 @@ public class LuaManager : SingletonBehaviour<LuaManager>
             luaEnv.Tick();
             LuaManager.lastGCTime = Time.time;
         }
+    }
+
+    public void GetLuaString(string fileName, System.Action<string> callBack)
+    {
+        ResourceManager.Instance.LoadAsync<TextAsset>(fileName, (res) =>
+        {
+            if (res == null)
+            {
+                GLog.Error("error file name : " + fileName);
+                return;
+            }
+
+            if (callBack != null)
+            {
+                callBack(res.text);
+            }
+        });
     }
 }
