@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GemaFrame", "GemaFrame.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GemaFrame.Editor", "GemaFrame.Editor.csproj", "{C6FC8D2F-8825-5A48-BF3D-85C39228D209}"
 EndProject
-Project("{5697748A-77EF-44CA-8824-4F5637E5945B}") = "LuaProj", "Assets\LuaProj.luaproj", "{E439935D-B2A2-46AE-856D-2AA408428F33}"
+Project("{5697748A-77EF-44CA-8824-4F5637E5945B}") = "LuaProject", "Assets\LuaProject.luaproj", "{E439935D-B2A2-46AE-856D-2AA408428F33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

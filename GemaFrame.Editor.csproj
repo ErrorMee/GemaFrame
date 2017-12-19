@@ -286,6 +286,7 @@
     <Compile Include="Assets\Editor\GemaEditor\InspectorEdit\LuaComponentEditor.cs" />
     <Compile Include="Assets\Editor\GemaEditor\Resource\BuildResources.cs" />
     <Compile Include="Assets\Editor\GemaEditor\Resource\CollectDependencies.cs" />
+    <Compile Include="Assets\Editor\GemaEditor\Resource\CopyLuaToStreamingAssets.cs" />
     <Compile Include="Assets\Editor\GemaEditor\Resource\GenerateAssetBundleFiles.cs" />
     <Compile Include="Assets\Editor\GemaEditor\Resource\PathEdit.cs" />
     <Compile Include="Assets\Editor\GemaEditor\Resource\SetAllTexture.cs" />
