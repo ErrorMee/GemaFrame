@@ -15,6 +15,12 @@ public class CopyLuaToStreamingAssets
     [MenuItem(kBuildResources, false, 1)]
     public static void CopyLuaToStreaming()
     {
+        OnCopyLuaToStreaming();
+        GeneratePatchFiles.GenerateFiles();
+    }
+
+    public static void OnCopyLuaToStreaming()
+    {
         string srcPath = Application.dataPath + "/lua";
         string destPath = PathUtil.StreamingassetsPath + "/patchs/lua";
 
@@ -22,7 +28,6 @@ public class CopyLuaToStreamingAssets
 
         Debug.Log("Copy lua finish");
     }
-
 
     public static void CopyFile(string scrPath, string desPath, bool encrpt = false)
     {

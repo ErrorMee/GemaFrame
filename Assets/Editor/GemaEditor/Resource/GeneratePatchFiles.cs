@@ -6,17 +6,17 @@ using System.Text;
 using UnityEngine;
 using UnityEditor;
 
-public class GenerateAssetBundleFiles
+public class GeneratePatchFiles
 {
     public static string bundlesPath = Application.streamingAssetsPath + "/patchs/";
     private static string bundlefilesName = "patchfiles.txt";
 
-    const string kGenerateAssetBundleFiles = GemaEditorConst.Resource + "/GenerateABFiles";
+    const string kGenerateAssetBundleFiles = GemaEditorConst.Resource + "/Generate PatchFiles";
     /// <summary>
     ///  生成bundlefiles
     /// </summary>
-    [@MenuItem(kGenerateAssetBundleFiles, false, 2051)]
-    public static void GenerateABFiles()
+    //[@MenuItem(kGenerateAssetBundleFiles, false, 2051)]
+    public static void GenerateFiles()
     {
         string bundlefilesPath = Path.Combine(bundlesPath, bundlefilesName);
 
@@ -35,7 +35,7 @@ public class GenerateAssetBundleFiles
                 continue;
             }
 
-            if (ext.Equals(".ab") || name.Contains("patchs"))
+            if (ext.Equals(".ab") || ext.Equals("") || name.Contains("patchs"))
             {
                 GLog.Log(name);
 

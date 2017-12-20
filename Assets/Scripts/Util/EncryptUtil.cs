@@ -19,6 +19,7 @@ public static class EncryptUtil
     /// <returns></returns>
     public static uint FileNameHash(string fileName)
     {
+        fileName = fileName.ToLower();
         uint crc32 = FNV32_OFFSET_BASIS;
         for (int i = 0; i < fileName.Length; i++)
         {
@@ -27,11 +28,6 @@ public static class EncryptUtil
             if (c == '/')
             {
                 c = '\\';
-            }
-
-            if (c >= 'A' && c <= 'Z')
-            {
-                c += (char)('a' - 'A');
             }
 
             crc32 *= FNV32_PRIME;
