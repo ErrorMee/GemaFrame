@@ -6,7 +6,6 @@ public class LuaComponent : MonoBehaviour
 {
 
     public string luaScriptPath;
-    public TextAsset luaScript;
     private LuaTable scriptEnv;
 
     private Action luaStart;
@@ -25,14 +24,7 @@ public class LuaComponent : MonoBehaviour
 
             scriptEnv.Set("self", this);
 
-
-            string[] spl = luaScriptPath.Split('/');
-            string fileName = spl[spl.Length - 1];
-            fileName = fileName.Replace(".lua", "");
-
-            LuaManager.Instance.GetLuaString(fileName, null);
-
-            LuaManager.Instance.luaEnv.DoString(luaScript.text, luaScriptPath, scriptEnv);
+            LuaManager.Instance.luaEnv.DoString(LuaManager.Instance.DoLoad(luaScriptPath), luaScriptPath, scriptEnv);
 
             Action luaAwake = scriptEnv.Get<Action>("awake");
             scriptEnv.Get("start", out luaStart);

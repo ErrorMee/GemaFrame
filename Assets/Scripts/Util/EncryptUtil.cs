@@ -81,4 +81,14 @@ public static class EncryptUtil
         }
         return true;
     }
+
+    /// <summary>
+    /// 字节解密
+    /// </summary>
+    /// <param name="buffer"></param>
+    /// <returns></returns>
+    public static bool Decryption(byte[] buffer)
+    {
+        return Encryption(buffer);
+    }
 }

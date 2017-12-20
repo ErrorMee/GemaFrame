@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4001814143
+CRC: 3379828445
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 952321af253e3c1956af54d58dc976a1
+    Hash: b0115211534f23b5364256d0b6254642
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9720ff7768496f07f94dca4d8eedaabf
+    Hash: f16d71892fb385500c1384ae28178184
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -16,8 +16,6 @@ ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
 - Class: 48
-  Script: {instanceID: 0}
-- Class: 49
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -34,7 +32,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 1e31d3e4e0534314582f6b66d50d6daa, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 277bc2dbb6ed2ee44af69a64b4f2f3d5, type: 3}
+  Script: {fileID: 11500000, guid: d6b28559e6babef4a998d24f11479ec7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bbc3997906fa6984f84daa53c9fbbb58, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -52,4 +52,3 @@ Assets:
 - Assets/BuildAssets/Prefabs/UI/MainUI.prefab
 Dependencies:
 - E:/StudySpace/GitSpace/GemaFrame/Assets/StreamingAssets/patchs/uisprite_.ab
-- E:/StudySpace/GitSpace/GemaFrame/Assets/StreamingAssets/patchs/lua/ui_.ab

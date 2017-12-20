@@ -5,6 +5,8 @@ using XLua;
 
 public class LuaManager : SingletonBehaviour<LuaManager>
 {
+    private static string REQUIRE_FORMAT = "require('{0}')";
+
     public LuaEnv luaEnv;
 
     private static float lastGCTime = 0;
@@ -13,16 +15,35 @@ public class LuaManager : SingletonBehaviour<LuaManager>
     private void Awake()
     {
         luaEnv = new LuaEnv();
-
-        luaEnv.AddLoader((ref string filename) => {
-            GLog.Log("require > " + filename);
-            return null;
-        });
     }
 
     public void Init()
     {
-        luaEnv.DoString("require 'LuaSetting'");
+        luaEnv.DoString(LuaManager.GetRequireString("LuaSetting"), "LuaSetting");
+
+        //沙盒是不传递到require的文件的,不适用lua使用self
+        luaEnv.AddLoader((ref string filepath) =>
+        {
+            GLog.Log("LuaLoader > " + filepath);
+            byte[] buffer = LuaLoader(filepath);
+            if (buffer == null || buffer.Length == 0)
+            {
+                return null;
+            }
+            else
+            {
+#if UNITY_EDITOR
+                if (AssetManager.bundleLoadMode)
+                {
+                    EncryptUtil.Decryption(buffer);
+                }
+#else
+            EncryptUtil.Decryption(buffer);
+#endif
+                return buffer;
+            }
+        });
+
         GameEvent.SendEvent(GameEventType.LuaManagerReady);
     }
 
@@ -35,20 +56,64 @@ public class LuaManager : SingletonBehaviour<LuaManager>
         }
     }
 
-    public void GetLuaString(string fileName, System.Action<string> callBack)
+    public string DoLoad(string luaScriptPath)
     {
-        ResourceManager.Instance.LoadAsync<TextAsset>(fileName, (res) =>
+        if (luaScriptPath.EndsWith(".lua"))
         {
-            if (res == null)
-            {
-                GLog.Error("error file name : " + fileName);
-                return;
-            }
+            int index = luaScriptPath.LastIndexOf('.');
+            luaScriptPath = luaScriptPath.Substring(0, index);
+        }
 
-            if (callBack != null)
+        byte[] buffer = LuaLoader(luaScriptPath);
+        if (buffer == null || buffer.Length == 0)
+        {
+            return null;
+        }
+        else
+        {
+#if UNITY_EDITOR
+            if (AssetManager.bundleLoadMode)
             {
-                callBack(res.text);
+                EncryptUtil.Decryption(buffer);
             }
-        });
+#else
+            EncryptUtil.Decryption(buffer);
+#endif
+            string txt = System.Text.Encoding.Default.GetString(buffer);
+            return txt;
+        }
     }
+
+    public static string GetRequireString(string luaScriptPath)
+    {
+        if (luaScriptPath.EndsWith(".lua"))
+        {
+            int index = luaScriptPath.LastIndexOf('.');
+            luaScriptPath = luaScriptPath.Substring(0, index);
+        }
+        return string.Format(LuaManager.REQUIRE_FORMAT, luaScriptPath);
+    }
+
+    private byte[] LuaLoader(string relativePath)
+    {
+        string fullPath = GetLuaFullPath(relativePath);
+        return HttpManager.Instance.GetBytes(fullPath);
+    }
+
+    private string GetLuaFullPath(string relativePath)
+    {
+        string fullPath;
+
+#if UNITY_EDITOR
+        if (!AssetManager.bundleLoadMode)
+        {
+            fullPath = Application.dataPath + "/Lua/" + relativePath + ".lua";
+            return fullPath;
+        }
+#endif
+        uint hash = EncryptUtil.FileNameHash(relativePath + ".lua");
+
+        return PathUtil.GetAssetPath("lua/" + hash);
+    }
+
 }

@@ -9,7 +9,43 @@ public delegate void DownloadProgress(int dataLength, byte[] deltaBuffer, bool i
 public class HttpManager : SingletonBehaviour<HttpManager>
 {
     /// <summary>
-    /// 获取文本
+    /// 同步获取二进制
+    /// </summary>
+    /// <param name="fullPath"></param>
+    /// <returns></returns>
+    public byte[] GetBytes(string fullPath)
+    {
+        WWW www = new WWW(fullPath);
+#if UNITY_IOS
+		System.Threading.Thread.Sleep (100);
+#endif
+        while (!www.isDone)
+        {
+            System.Threading.Thread.Sleep(0);
+        }
+
+        if (www.error != null)
+        {
+            Debug.LogError(www.error + ":" + fullPath);
+            www.Dispose();
+            return null;
+        }
+
+        int wwwlen = www.bytes.Length;
+        if (wwwlen <= 0)
+        {
+            www.Dispose();
+            return null;
+        }
+
+        byte[] buffer = new byte[wwwlen];
+        www.bytes.CopyTo(buffer, 0);
+        www.Dispose();
+        return buffer;
+    }
+
+    /// <summary>
+    /// 异步获取文本
     /// </summary>
     /// <param name="url"></param>
     /// <param name="finishLoad"></param>

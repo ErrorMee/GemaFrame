@@ -2,72 +2,54 @@
     "data": [
         {
             "id": 1,
-            "name": "LuaShell",
-            "ab": "lua_",
-            "type": "Asset"
-        },
-        {
-            "id": 2,
-            "name": "Login",
-            "ab": "lua/ui_",
-            "type": "Asset"
-        },
-        {
-            "id": 3,
-            "name": "LoginTxt",
-            "ab": "lua/ui_",
-            "type": "Asset"
-        },
-        {
-            "id": 4,
             "name": "BagUI",
             "ab": "prefabs/ui_",
             "type": "Asset"
         },
         {
-            "id": 5,
+            "id": 2,
             "name": "FightUI",
             "ab": "prefabs/ui_",
             "type": "Asset"
         },
         {
-            "id": 6,
+            "id": 3,
             "name": "LoginUI",
             "ab": "prefabs/ui_",
             "type": "Asset"
         },
         {
-            "id": 7,
+            "id": 4,
             "name": "MainUI",
             "ab": "prefabs/ui_",
             "type": "Asset"
         },
         {
-            "id": 8,
+            "id": 5,
             "name": "cell_01",
             "ab": "uisprite_",
             "type": "Texture"
         },
         {
-            "id": 9,
+            "id": 6,
             "name": "cell_02",
             "ab": "uisprite_",
             "type": "Texture"
         },
         {
-            "id": 10,
+            "id": 7,
             "name": "cell_03",
             "ab": "uisprite_",
             "type": "Texture"
         },
         {
-            "id": 11,
+            "id": 8,
             "name": "cell_04",
             "ab": "uisprite_",
             "type": "Texture"
         },
         {
-            "id": 12,
+            "id": 9,
             "name": "LOGO",
             "ab": "uisprite_",
             "type": "Texture"

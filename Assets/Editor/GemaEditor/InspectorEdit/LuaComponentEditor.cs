@@ -4,7 +4,7 @@ using UnityEngine;
 [CustomEditor(typeof(LuaComponent), true)]
 public class LuaComponentEditor : Editor
 {
-    private static string LuaRootPath = "Assets/BuildAssets/Lua/";
+    private static string LuaRootPath = "Assets/Lua/";
 
     private SerializedProperty luaScriptPath;
 

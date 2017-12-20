@@ -48,7 +48,7 @@ public class LuaBehaviour : MonoBehaviour {
         {
             scriptEnv.Set(injection.name, injection.value);
         }
-
+        
         luaEnv.DoString(luaScript.text, "LuaBehaviour", scriptEnv);
 
         Action luaAwake = scriptEnv.Get<Action>("awake");

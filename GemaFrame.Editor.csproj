@@ -298,8 +298,6 @@
     <Compile Include="Assets\Scripts\LuaManager\XLua\Src\Editor\TemplateRef.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\BuildAssets\Lua\LuaShell.lua.txt" />
-    <None Include="Assets\BuildAssets\Lua\UI\LoginTxt.lua.txt" />
     <None Include="Assets\Resources\LuaSetting.lua.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\CHANGELOG.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />

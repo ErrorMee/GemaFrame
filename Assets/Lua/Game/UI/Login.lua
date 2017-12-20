@@ -3,7 +3,7 @@ local accountTxt;
 local loginBtn;
 
 function awake()
-	print(self.name .. " awake...");
+	print("lua awake...");
 
 	accountTxt = self.transform:Find("Account"):GetComponent("InputField");
 	loginBtn = self.transform:Find("Login");
@@ -22,12 +22,16 @@ function start()
 	CS.EventTriggerListener.Get(loginBtn.gameObject).onClick = OnClickLogin;
 end
 
+function OnClickLogin(go)
+	print("OnClickLogin");
+end
+
 function update()
 	
 end
 
 function ondestroy()
-    print(self.name .. " destroy...");
+    print("lua destroy")
 end
 
 function OnClickLogin(go)
