@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: 20f235288c1fde249aba3eed2624faa7
-timeCreated: 1510578993
-licenseType: Free
+guid: 5a93f96f75148d9408a704532b6dcd44
+timeCreated: 1514018579
+licenseType: Pro
 TextScriptImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: config_
   assetBundleVariant: ab

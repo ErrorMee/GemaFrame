@@ -8,7 +8,7 @@ public class SetAssetBundle
 {
     private static string buildAssetsPath = (Application.dataPath + "/BuildAssets").ToLower();
 
-    private static string configPath = Application.dataPath + "/BuildAssets/Config/resources.json";
+    private static string configPath = Application.dataPath + "/BuildAssets/Config/ab_resources.json";
 
     private static int resourceCount = 0;
     private static Dictionary<string, List<string>> typeAssets = new Dictionary<string, List<string>>();

@@ -83,13 +83,20 @@ public class PathUtil
             return relativePath;
         }
 #endif
-
-        string patchPath = PathUtil.PatchPath + relativePath;
-        if (File.Exists(patchPath))
+        
+        if (Game.Instance.gameSetting.patchOpen)
         {
-            return patchPath;
+            string patchPath = PathUtil.PatchPath + relativePath;
+            if (File.Exists(patchPath))
+            {
+                return patchPath;
+            }
+            return StreamingPatchPath + relativePath;
+        }
+        else
+        {
+            return StreamingPatchPath + relativePath;
         }
 
-        return StreamingPatchPath + relativePath;
     }
 }

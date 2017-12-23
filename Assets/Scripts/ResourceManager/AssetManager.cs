@@ -37,7 +37,7 @@ public class AssetManager : SingletonBehaviour<AssetManager>
         }
 #endif
 
-        StartCoroutine(LoadAsyncImpl<TextAsset>(PathUtil.GetAssetPath("config_.ab"), "resources", (res) =>
+        StartCoroutine(LoadAsyncImpl<TextAsset>(PathUtil.GetAssetPath("config_.ab"), "ab_resources", (res) =>
         {
             JsonUtility.FromJsonOverwrite(res.text, resourceConfig);
             GLog.Log("resourceConfig.data.Count:" + resourceConfig.data.Count);
