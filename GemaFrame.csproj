@@ -278,6 +278,7 @@
     <Compile Include="Assets\Scripts\ResourceManager\AssetBundleInfo.cs" />
     <Compile Include="Assets\Scripts\ResourceManager\AssetManager.cs" />
     <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\UIManager\base\SimpleScrollList.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIBase.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIManager.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIs\BagUI.cs" />
