@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2017.2.0p2</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -223,6 +221,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Config\ABConfig.cs" />
     <Compile Include="Assets\Scripts\Config\BaseConfigInfo.cs" />
+    <Compile Include="Assets\Scripts\Debug\Profiler\FPS.cs" />
     <Compile Include="Assets\Scripts\EventManager\EventTriggerListener.cs" />
     <Compile Include="Assets\Scripts\EventManager\GameEvent.cs" />
     <Compile Include="Assets\Scripts\EventManager\GameEventType.cs" />
@@ -350,6 +349,7 @@
     <Compile Include="Assets\Scripts\Util\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Util\PathUtil.cs" />
     <Compile Include="Assets\Scripts\Util\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Util\StringUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\LuaSetting.lua.txt" />
