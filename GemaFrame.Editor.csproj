@@ -279,6 +279,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleBrowserMain.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleBuildTab.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleDataSource\ABDataSource.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleDataSource\ABDataSourceProvider.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleDataSource\AssetDatabaseABDataSource.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleManageTab.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleModel\ABModel.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleModel\ABModelAssetInfo.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleModel\ABModelBundleInfo.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetBundleTree.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\AssetListTree.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\BundleDetailList.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\InspectTab\AssetBundleInspectTab.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\InspectTab\AssetBundleRecord.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\InspectTab\InspectSingleBundle.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\InspectTab\InspectTreeView.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\MessageList.cs" />
+    <Compile Include="Assets\Editor\AssetBundleBrowser\MessageSystem.cs" />
     <Compile Include="Assets\Editor\GemaEditor\CreateAssetEditor.cs" />
     <Compile Include="Assets\Editor\GemaEditor\FindAllFiles.cs" />
     <Compile Include="Assets\Editor\GemaEditor\GemaEditor.cs" />
