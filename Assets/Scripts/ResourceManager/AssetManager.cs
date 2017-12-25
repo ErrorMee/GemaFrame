@@ -16,7 +16,7 @@ public class AssetManager : SingletonBehaviour<AssetManager>
     private AssetBundleManifest manifest;
     private Dictionary<string, AssetBundleInfo> assetBundleInfoDic = new Dictionary<string, AssetBundleInfo>();
 
-    private ResourcesConfig resourceConfig = new ResourcesConfig();
+    private ABConfig abConfig = new ABConfig();
 
     public void Init()
     {
@@ -37,10 +37,10 @@ public class AssetManager : SingletonBehaviour<AssetManager>
         }
 #endif
 
-        StartCoroutine(LoadAsyncImpl<TextAsset>(PathUtil.GetAssetPath("config_.ab"), "ab_resources", (res) =>
+        StartCoroutine(LoadAsyncImpl<TextAsset>(PathUtil.GetAssetPath("config_.ab"), "abConfig", (res) =>
         {
-            JsonUtility.FromJsonOverwrite(res.text, resourceConfig);
-            GLog.Log("resourceConfig.data.Count:" + resourceConfig.data.Count);
+            JsonUtility.FromJsonOverwrite(res.text, abConfig);
+            GLog.Log("abConfig.data.Count:" + abConfig.data.Count);
             GameEvent.SendEvent(GameEventType.AssetManagerReady);
         }));
     }
@@ -70,8 +70,8 @@ public class AssetManager : SingletonBehaviour<AssetManager>
     public void LoadAsync<T>(string assetName, System.Action<T> finishLoad) where T : UnityEngine.Object
     {
         string abName = ".ab";
-        ResourcesConfigInfo resourceConfigInfo = resourceConfig.GetInfoByName(assetName);
-        abName = resourceConfigInfo.ab + abName;
+        ABConfigInfo abConfigInfo = abConfig.GetInfoByName(assetName);
+        abName = abConfigInfo.ab + abName;
 
         StartCoroutine(LoadAsyncImpl<T>(abName, assetName, finishLoad));
     }

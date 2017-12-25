@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3754589402
+CRC: 423727785
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3afa27d860a45ba3b3cb00433646fee5
+    Hash: fe319dde1f263fdf42fcf562f1618145
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -12,5 +12,5 @@ ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
 Assets:
-- Assets/BuildAssets/Config/ab_resources.json
+- Assets/BuildAssets/Config/abConfig.json
 Dependencies: []

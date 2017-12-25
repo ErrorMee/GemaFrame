@@ -8,14 +8,14 @@ public class SetAssetBundle
 {
     private static string buildAssetsPath = (Application.dataPath + "/BuildAssets").ToLower();
 
-    private static string configPath = Application.dataPath + "/BuildAssets/Config/ab_resources.json";
+    private static string configPath = Application.dataPath + "/BuildAssets/Config/abConfig.json";
 
     private static int resourceCount = 0;
     private static Dictionary<string, List<string>> typeAssets = new Dictionary<string, List<string>>();
     private static List<string> abGroupFolders = new List<string>() { "GroupFolder" };
     private static List<string> abAloneFolders = new List<string>() { "AloneFolder" };
 
-    private static ResourcesConfig config;
+    private static ABConfig abConfig;
 
     const string kSetAssetLabels = GemaEditorConst.AssetBundle + "/SetAssetLabels";
     /// <summary>
@@ -38,16 +38,16 @@ public class SetAssetBundle
         }
 
         List<string> files = FindAllFiles.ListFiles(buildAssetsPath, true);
-        
-        config = new ResourcesConfig();
-        config.data = new List<ResourcesConfigInfo>();
-        
+
+        abConfig = new ABConfig();
+        abConfig.data = new List<ABConfigInfo>();
+
         FileStream fs = new FileStream(configPath, FileMode.Create);
         StreamWriter sw = new StreamWriter(fs);
 
         SetABName(files, true);
 
-        string js = EditorJsonUtility.ToJson(config,true);
+        string js = EditorJsonUtility.ToJson(abConfig, true);
         sw.Write(js);
         
         sw.Close(); fs.Close();
@@ -76,8 +76,9 @@ public class SetAssetBundle
         {
             File.Delete(configPath);
         }
-        config = new ResourcesConfig();
-        config.data = new List<ResourcesConfigInfo>();
+        
+        abConfig = new ABConfig();
+        abConfig.data = new List<ABConfigInfo>();
         SetABName(files, false);
         AssetDatabase.Refresh();
     }
@@ -124,14 +125,20 @@ public class SetAssetBundle
                 return;
             }
             listAsset.Add(fileName);
-            resourceCount++;
+            
 
-            ResourcesConfigInfo configInfo = new ResourcesConfigInfo();
-            configInfo.id = resourceCount;
-            configInfo.name = fileName;
-            configInfo.ab = abName;
-            configInfo.type = typename;
-            config.AddInfo(configInfo);
+            ABConfigInfo abConfigInfo = abConfig.GetInfoByAB(abName);
+            if (abConfigInfo == null)
+            {
+                abConfigInfo = new ABConfigInfo();
+                abConfig.AddInfo(abConfigInfo);
+                resourceCount++;
+                abConfigInfo.id = resourceCount;
+                abConfigInfo.ab = abName;
+                abConfigInfo.type = typename;
+            }
+            abConfigInfo.names.Add(fileName);
+
         }
         EditorUtility.ClearProgressBar();
     }

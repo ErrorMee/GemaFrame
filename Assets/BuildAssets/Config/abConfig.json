@@ -1,0 +1,27 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "names": [
+                "BagUI",
+                "FightUI",
+                "LoginUI",
+                "MainUI"
+            ],
+            "ab": "prefabs/ui_",
+            "type": "Asset"
+        },
+        {
+            "id": 2,
+            "names": [
+                "cell_01",
+                "cell_02",
+                "cell_03",
+                "cell_04",
+                "LOGO"
+            ],
+            "ab": "uisprite_",
+            "type": "Texture"
+        }
+    ]
+}
