@@ -4,6 +4,8 @@ using UnityEngine;
 [Serializable]
 public class GameSetting : ScriptableObject
 {
+    [Header("---------- Patch ----------")]
+
     /// <summary>
     /// 是否开启热更
     /// </summary>
@@ -26,12 +28,30 @@ public class GameSetting : ScriptableObject
     [TextArea(2, 3)]
     public string patchRootPathWeb;
 
+    [Space(10)]
+    [Header("---------- Load ----------")]
+
     /// <summary>
     /// 加载资源是否使用生成的bundle 
     /// false时直接加载原始资源
     /// </summary>
-    public bool loadModeIsBundle = false;
+    [Tooltip("加载资源是否使用bundle文件")]
+    public bool loadModeIsBundle = true;
 
+    [Space(10)]
+    [Header("---------- Other ----------")]
+
+    /// <summary>
+    /// 游戏帧率
+    /// </summary>
+    [ContextMenuItem("Reset", "ResetFPS")]
+    [Range(30, 100)]
+    public int fps = 45;
+    void ResetFPS()
+    {
+        fps = 45;
+    }
+    
     private void OnEnable()
     {
         patchRootPathSimulation = Application.dataPath + "/../SimulationWebAddress/patchs/";

@@ -5,6 +5,9 @@ using System.Text;
 
 public class StringUtil
 {
+    public static string K = "K";
+    public static string M = "M";
+
     public static string[] stringsFrom0To9 = {
         "00", "01", "02", "03", "04", "05", "06", "07", "08", "09"
     };
