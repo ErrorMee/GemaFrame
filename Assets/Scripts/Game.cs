@@ -14,8 +14,7 @@ public class Game : SingletonBehaviour<Game>
         {
             gameSetting = Resources.Load<GameSetting>("GameSetting");
         }
-
-        Application.targetFrameRate = gameSetting.fps;
+        gameSetting.SetGame();
 
         gameObject.AddComponent<HttpManager>();
         gameObject.AddComponent<PatchManager>();
@@ -31,6 +30,11 @@ public class Game : SingletonBehaviour<Game>
     void Start()
     {
         PatchManager.Instance.Init();
+    }
+
+    private void OnDestroy()
+    {
+        gameSetting.CloseGame();
     }
 
     void OnPatchComplete(object[] param)

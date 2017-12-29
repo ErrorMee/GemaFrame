@@ -51,7 +51,29 @@ public class GameSetting : ScriptableObject
     {
         fps = 45;
     }
-    
+
+    /// <summary>
+    /// 热更地址(服务器)
+    /// </summary>
+    public bool writeLog = true;
+
+    /// <summary>
+    /// 设置游戏
+    /// </summary>
+    public void SetGame()
+    {
+        Application.targetFrameRate = fps;
+        if (writeLog)
+        {
+            GLog.SetWriteLog();
+        }
+    }
+
+    public void CloseGame()
+    {
+        GLog.CloseGame();
+    }
+
     private void OnEnable()
     {
         patchRootPathSimulation = Application.dataPath + "/../SimulationWebAddress/patchs/";

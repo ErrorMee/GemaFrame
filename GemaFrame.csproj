@@ -226,6 +226,7 @@
     <Compile Include="Assets\Scripts\EventManager\GameEvent.cs" />
     <Compile Include="Assets\Scripts\EventManager\GameEventType.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\Scripts\GameSetting.cs" />
     <Compile Include="Assets\Scripts\LuaManager\LuaComponent.cs" />
     <Compile Include="Assets\Scripts\LuaManager\LuaManager.cs" />
     <Compile Include="Assets\Scripts\LuaManager\XLua\Examples\01_Helloworld\Helloworld.cs" />
@@ -336,12 +337,10 @@
     <Compile Include="Assets\Scripts\UIManager\UIManager.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIs\BagUI.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIs\FightUI.cs" />
-    <Compile Include="Assets\Scripts\UIManager\UIs\LoginUI.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIs\MainUI.cs" />
     <Compile Include="Assets\Scripts\Util\ColorUtil.cs" />
     <Compile Include="Assets\Scripts\Util\DontDestroyOnLoad.cs" />
     <Compile Include="Assets\Scripts\Util\EncryptUtil.cs" />
-    <Compile Include="Assets\Scripts\Util\GameSetting.cs" />
     <Compile Include="Assets\Scripts\Util\GLog.cs" />
     <Compile Include="Assets\Scripts\Util\MD5Util.cs" />
     <Compile Include="Assets\Scripts\Util\MyExtensions.cs" />
