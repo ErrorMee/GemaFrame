@@ -25,8 +25,5 @@
     <Folder Include="Lua\" />
     <Folder Include="Lua\UI\" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Lua\UI\Login.lua" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>

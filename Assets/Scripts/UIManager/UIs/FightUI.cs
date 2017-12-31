@@ -8,9 +8,10 @@ public class FightUI : UIBase
     private void Start()
     {
         EventTriggerListener.Get(closeBtn.gameObject).onClick = OnClickClose;
-
-
+        
         TestCrush();
+
+        SDKManager.Instance.Test();
     }
 
     private void OnClickClose(GameObject go)

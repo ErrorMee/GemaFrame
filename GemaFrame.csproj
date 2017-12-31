@@ -332,6 +332,7 @@
     <Compile Include="Assets\Scripts\ResourceManager\AssetBundleInfo.cs" />
     <Compile Include="Assets\Scripts\ResourceManager\AssetManager.cs" />
     <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\SDKManager\SDKManager.cs" />
     <Compile Include="Assets\Scripts\UIManager\base\SimpleScrollList.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIBase.cs" />
     <Compile Include="Assets\Scripts\UIManager\UIManager.cs" />
@@ -351,6 +352,8 @@
     <Compile Include="Assets\Scripts\Util\StringUtil.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\res\values\values.xml" />
     <None Include="Assets\Resources\LuaSetting.lua.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\CHANGELOG.txt" />
     <None Include="Assets\Scripts\LuaManager\XLua\Examples\02_U3DScripting\LuaTestScript.lua.txt" />

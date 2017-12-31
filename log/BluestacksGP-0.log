@@ -1,0 +1,9 @@
+pid=6684 tid=2528 2017-12-31 14:36:13.747 ALARM  logger "-----------------  log4z thread started!   ----------------------------" 
+pid=6684 tid=2528 2017-12-31 14:36:13.747 ALARM  logger "logger id=0 key=Main name=BluestacksGP path=./log/ level=1 display=1" 
+pid=6684 tid=10868 2017-12-31 14:39:13.289 INFO  BluestacksGP.exe  "OnSysCommand" CMainDlg::OnSysCommand (MainDlg.cpp):11969 
+pid=6684 tid=10868 2017-12-31 14:42:32.418 INFO  BluestacksGP.exe  "OnSysCommand" CMainDlg::OnSysCommand (MainDlg.cpp):11969 
+pid=6684 tid=10868 2017-12-31 14:43:07.489 INFO  BluestacksGP.exe  "OnExitSizeMove" CMainDlg::OnExitSizeMove (MainDlg.cpp):11955 
+pid=6684 tid=10868 2017-12-31 15:00:08.272 INFO  BluestacksGP.exe  "OnExitSizeMove" CMainDlg::OnExitSizeMove (MainDlg.cpp):11955 
+pid=6684 tid=10868 2017-12-31 15:00:35.695 INFO  BluestacksGP.exe  "OnExitSizeMove" CMainDlg::OnExitSizeMove (MainDlg.cpp):11955 
+pid=6684 tid=10868 2017-12-31 15:03:54.130 INFO  BluestacksGP.exe  "OnSysCommand" CMainDlg::OnSysCommand (MainDlg.cpp):11969 
+pid=6684 tid=10868 2017-12-31 15:08:28.853 INFO  BluestacksGP.exe  "OnSysCommand" CMainDlg::OnSysCommand (MainDlg.cpp):11969 

@@ -16,6 +16,7 @@ public class Game : SingletonBehaviour<Game>
         }
         gameSetting.SetGame();
 
+        gameObject.AddComponent<SDKManager>();
         gameObject.AddComponent<HttpManager>();
         gameObject.AddComponent<PatchManager>();
         gameObject.AddComponent<AssetManager>();
@@ -29,6 +30,8 @@ public class Game : SingletonBehaviour<Game>
 
     void Start()
     {
+        SDKManager.Instance.Init();
+
         PatchManager.Instance.Init();
     }
 
