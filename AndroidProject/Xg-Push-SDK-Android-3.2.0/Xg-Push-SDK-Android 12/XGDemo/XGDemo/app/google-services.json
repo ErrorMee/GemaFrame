@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "796963729982",
+    "firebase_url": "https://fcmdemo-3b031.firebaseio.com",
+    "project_id": "fcmdemo-3b031",
+    "storage_bucket": "fcmdemo-3b031.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796963729982:android:c495c10d4fa124a2",
+        "android_client_info": {
+          "package_name": "com.qq.xgdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796963729982-svimbra7jsi3opc7ucvnjnpcjfte2b1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1qw_ebEE6xayKUO2-eLAdL53022RmhSk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

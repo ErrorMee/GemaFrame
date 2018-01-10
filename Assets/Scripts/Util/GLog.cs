@@ -59,7 +59,7 @@ public static class GLog
     {
         // win C:/Users/user/AppData/Local/Temp/company/project
         //android simulator mnt/media-rw/sdcard/Android/data/com.company.project/cache/
-        string fullLogFolder = string.Concat(Application.temporaryCachePath, @"/GemaFrame/");
+        string fullLogFolder = string.Concat(Application.temporaryCachePath, "/" + Application.productName + "/");
         if (!Directory.Exists(fullLogFolder))
         {
             Directory.CreateDirectory(fullLogFolder);
@@ -109,7 +109,7 @@ public static class GLog
             }
         }
     }
-    private static int ExpiredTime = 180; //3分钟
+    private static int ExpiredTime = 1800; //30分钟
     private static StreamWriter swLog;
     static private void HandleLog(string logString, string stackTrace, LogType type)
     {

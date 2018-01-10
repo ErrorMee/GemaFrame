@@ -8,6 +8,7 @@ public class SDKManager : SingletonBehaviour<SDKManager>
 
     public void Init()
     {
+        GLog.Log("Application.platform " + Application.platform);
         if (Application.platform == RuntimePlatform.Android)
         {
             AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
@@ -16,12 +17,20 @@ public class SDKManager : SingletonBehaviour<SDKManager>
 
     }
 
-    public void Test()
+    public void TestUnityCallAndorid()
     {
         if (Application.platform == RuntimePlatform.Android)
         {
             string time = jo.Call<string>("getNowTime");
             jo.Call("showToast", new object[] { time });
+        }
+    }
+
+    public void TestAndoridCallUnity(string uObjName, string methodName)
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            jo.Call("CallUnityFunc", uObjName, methodName);
         }
     }
 }

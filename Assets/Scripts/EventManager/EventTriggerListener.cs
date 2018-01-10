@@ -120,76 +120,7 @@ public class EventTriggerListener : MonoBehaviour, IEventSystemHandler, IPointer
         }
     }
 
-    public delegate void VectorDelegate(GameObject go, PointerEventData pointerData);
-    private VectorDelegate m_onClickDetail;
-    public VectorDelegate onClickDetail
-    {
-        get { return m_onClickDetail; }
-        set
-        {
-            if (m_onClickDetail != null)
-            {
-                m_onClickDetail = null;
-            }
-            m_onClickDetail = value;
-        }
-    }
-
-    private VectorDelegate m_onDownDetail;
-    public VectorDelegate onDownDetail
-    {
-        get { return m_onDownDetail; }
-        set
-        {
-            if (m_onDownDetail != null)
-            {
-                m_onDownDetail = null;
-            }
-            m_onDownDetail = value;
-        }
-    }
-
-    private VectorDelegate m_onEnterDetail;
-    public VectorDelegate onEnterDetail
-    {
-        get { return m_onEnterDetail; }
-        set
-        {
-            if (m_onEnterDetail != null)
-            {
-                m_onEnterDetail = null;
-            }
-            m_onEnterDetail = value;
-        }
-    }
-
-    private VectorDelegate m_onExitDetail;
-    public VectorDelegate onExitDetail
-    {
-        get { return m_onExitDetail; }
-        set
-        {
-            if (m_onExitDetail != null)
-            {
-                m_onExitDetail = null;
-            }
-            m_onExitDetail = value;
-        }
-    }
-
-    private VectorDelegate m_onUpDetail;
-    public VectorDelegate onUpDetail
-    {
-        get { return m_onUpDetail; }
-        set
-        {
-            if (m_onUpDetail != null)
-            {
-                m_onUpDetail = null;
-            }
-            m_onUpDetail = value;
-        }
-    }
+    
 
 
     private Coroutine _LongClick;
@@ -203,7 +134,6 @@ public class EventTriggerListener : MonoBehaviour, IEventSystemHandler, IPointer
     public void OnPointerClick(PointerEventData eventData)
     {
         if (onClick != null && !longPressTriggerd) onClick(gameObject);
-        if (onClickDetail != null && !longPressTriggerd) onClickDetail(gameObject, eventData);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -217,22 +147,18 @@ public class EventTriggerListener : MonoBehaviour, IEventSystemHandler, IPointer
             if (_LongClick != null) StopCoroutine(_LongClick);
             _LongClick = StartCoroutine(LongClick(0.5f));
         }
-        if (onDownDetail != null) onDownDetail(gameObject, eventData);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (onEnter != null) onEnter(gameObject);
-        if (onEnterDetail != null) onEnterDetail(gameObject, eventData);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         if (onExit != null) onExit(gameObject);
-        if (onExitDetail != null) onExitDetail(gameObject, eventData);
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         if (onUp != null) onUp(gameObject);
-        if (onUpDetail != null) onUpDetail(gameObject, eventData);
         if (onLongPress != null && _LongClick != null)
         {
             StopCoroutine(_LongClick);
@@ -268,12 +194,7 @@ public class EventTriggerListener : MonoBehaviour, IEventSystemHandler, IPointer
         onSelect = null;
         onUp = null;
         onUpdateSelect = null;
-
-        onClickDetail = null;
-        onDownDetail = null;
-        onEnterDetail = null;
-        onExitDetail = null;
-        onUpDetail = null;
+        
     }
 
 }
